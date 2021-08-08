@@ -19,6 +19,21 @@ pipeline{
                         sh 'docker push ariomer/jenkins:latest'
                     }
             }
+              stage('Create IS'){
+     
+                    steps{
+                        echo "Creating InfraStructure"
+                         sh """ 
+                        #!/bin/bash
+                        cd /var/jenkins_home/workspace/$JOB_NAME/
+                        pwd
+                        terraform init
+                        terraform apply -auto-approve
+                        """ 
+                    }
+                        
+                    }
+            }
     }
 }
     
