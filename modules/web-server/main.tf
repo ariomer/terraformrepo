@@ -62,6 +62,7 @@ resource "aws_instance" "my-server" {
   key_name        = aws_key_pair.my-server-key.key_name
   security_groups = [aws_security_group.allow-ssh-web.id]
 
+  
 
   tags = {
     "Name" = "${var.environment}-my-server"
@@ -78,9 +79,8 @@ connection {
   provisioner "remote-exec" {
 
       inline = [
-        "sudo yum update -y", "sudo yum install docker -y","sudo systemctl start docker","sudo docker run -d -p 80:80 ariomer/jenkins:latest
-      ]
+        "sudo yum update -y", "sudo yum install docker -y","sudo systemctl start docker","sudo docker run -d -p 80:80 ariomer/jenkins:latest"
+       ]
+  }
     
-}
-
 }
