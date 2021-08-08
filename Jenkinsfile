@@ -10,7 +10,7 @@ pipeline{
      
                     steps{
                         echo "Creating Image"
-                        sh 'docker build . -t umutderman/jenkins:latest'
+                        sh 'docker build . -t ariomer/jenkins:latest'
                     }
             }
              stage('Docker Push'){
